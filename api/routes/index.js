@@ -5,6 +5,17 @@ var apiTool = require('../tools/api-tool');
 var multer  = require('multer')
 var upload = multer({ dest: 'uploads/' })
 
+/**
+ * @TODO Determine storage method -- mongo?
+ * @TODO Setup authentication
+ * @TODO Podcasts index
+ * @TODO Podcast/Episodes index
+ * @TODO Podcast/Episodes create
+ * @TODO Podcast/Episodes delete
+ * @TODO Podcast/Episodes get single
+ * @TODO Podcast/Episodes index -- XML/iTunes
+ */
+
 var authenticationMiddleware = function(req, res, next) {
     if(_.isObject(req.headers) && req.headers['authentication-token']) {
         var token = req.headers['authentication-token'];
@@ -54,7 +65,7 @@ router.post('/podcasts/:id/episodes/:episodeId/upload',
     authenticationMiddleware,
     upload.single('file'),
     function(req, res) {
-        apiTool.uploadEpisode(
+        apiTool.addEpisode(
             req.params.id,
             req.params.episodeId,
             {

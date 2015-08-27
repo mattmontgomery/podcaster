@@ -2,7 +2,7 @@ module.exports = {
     getPodcast: function(podcastId) {
 
     },
-    uploadEpisode: function(podcastId, episodeId, episodeData) {
+    addEpisode: function(podcastId, episodeId, episodeData) {
         return new Promise(function(resolve, reject) {
             resolve({
                 podcast: podcastId,
