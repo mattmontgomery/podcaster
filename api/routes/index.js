@@ -73,11 +73,10 @@ router.post('/podcasts/:id/episodes/:episodeId/upload',
             }
         )
         .then(function(data) {
+            console.log(data);
             res.json(data);
         })
     }
 );
-
-router.get('/v1/')
 
 module.exports = router;
